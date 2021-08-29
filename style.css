@@ -1,0 +1,18 @@
+  ul{
+    list-style-type: none;
+  }
+  form{
+      align-items: center;
+  display: flex;
+ justify-content: space-between; 
+ border: 1px, solid, gray;
+}
+.identificacao{
+  color: blue;
+}
+.local{
+  color: yellow;
+}
+.contatos{
+  color: red;
+}

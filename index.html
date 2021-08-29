@@ -1,0 +1,216 @@
+<html lang="pt-br">
+<!DOCTYPE html>
+
+<head>
+	<meta name="author" content="Gabriel Silva">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<title>
+		Cadastre-se
+	</title>
+</head>
+
+<body>
+	<h1>
+		Insira seus dados abaixo
+	</h1>
+	<br />
+	<form action="" id="formulario" name="formulario" method="POST">
+		<ul>
+			<li>
+				<section class="identificacao">
+					<label for="nome-usuario">
+						*Nome:
+					</label>
+					<input type="text" id="nome-usuario" name="nome" placeholder="Insira aqui seu nome">
+					<br>
+					<p id="paragrafo-nome"></p>
+					<br />
+					<fieldset <legend>Como você se identifica?</legend>
+						<ul>
+							<li>
+								<input type="radio" name="opcao" id="opcao1" value="Mulher cis">
+								<label for="opcao1">
+									Mulher cis
+								</label>
+							</li>
+							<li>
+								<input type="radio" name="opcao" id="opcao2" value="Mulher trans">
+								<label for="opcao2">
+									Mulher trans
+								</label>
+							</li>
+							<li>
+								<input type="radio" name="opcao" id="opcao3" value="homem cis">
+								<label for="opcao3">
+									Homem cis
+								</label>
+							</li>
+							<li>
+								<input type="radio" name="opcao" id="opcao4" value="Homem trans">
+								<label for="opcao4">
+									Homem trans
+								</label>
+							</li>
+							<li>
+								<input type="radio" name="opcao" id="opcao5" value="outro">
+								<label for="opcao5">
+									Outro
+								</label>
+							</li>
+							<li>
+								<p>
+									<input type="text">
+								</p>
+								<input type="radio" name="opcao" id="opcao6" value="nenhuma">
+								<label for="opcao6">
+									Prefiro não responder
+								</label>
+							</li>
+						</ul>
+					</fieldset>
+					<br />
+					<label for="cartao-identidade">
+					</label>
+					<input type="text" id="cartao-identidade" maxlength="8"
+						placeholder="Insira aqui o número do seu RG">
+					RG:
+					<br />
+					<p id="paragrafo-rg"></p>
+					<br />
+					<label for="cartao-CPF">
+						*CPF:
+					</label>
+					<input type="text" required="required" id="cartao-CPF" onfocus="verificador(this);" maxlength="11"
+						placeholder="Insira aqui o número do seu CPF">
+					<p id="paragrafo-cpf"></p>
+				</section>
+			</li>
+			<li>
+				<section id="local">
+					<label for="CEP">
+						CEP:
+					</label>
+					<input type="text" id="cep" name="cep" onfocus="pesquisacep(this.value);" onfocus="mascaraCep(this);" placeholder="Insira aqui o número do seu CEP ">
+					<br />
+					<br />
+					<label for="rua">
+						*Rua:
+					</label>
+					<input type="text" required="required" id="rua" name="rua"
+						placeholder="Nome e ou número de sua rua...">
+					<br />
+					<label for="bairro">
+						Bairro:
+					</label>
+					<input type="text"  id="bairro" placeholder="Nome do seu bairro aqui">
+					<br>
+					<label for="numero">
+						*Número:
+					</label>
+					<input type="text" required="required" id="numero" name="numero"
+						placeholder="Insira o número aqui">
+					<br />
+					<br />
+					<label for="cidade">
+						Cidade:
+					</label>
+					<input type="text" id="cidade" name="cidade" placeholder="Insira o nome de sua cidade aqui">
+					<br />
+					<label for="uf">
+						Estado:
+					</label>
+					<input type="text" id="uf" name="uf" placeholder="Insira o nome de seu estado aqui">
+					<label for="ibge">
+						ibge:
+					</label>
+					<input type="text" id="ibge" name="ibge">
+				</section>
+			</li>
+						<li>
+				<section class="contatos">
+					<label for="celular">
+						*celular:
+					</label>
+					<input type="tel" type="number" required="required" id="celular" name="numero-celular" minlength="11" maxlength="11"  onblur="verificador(this);"
+						placeholder="Insira aqui seu número de celular">
+					<br />
+					<br />
+					<label for="fixo">
+						Telefone fixo:
+					</label>
+					<input type="text" id="fixo" name="numero-telefone-fixo"  onblur="verificador(this);"
+						placeholder="Insira aqui seu número de telefone fixo">
+					<p id="paragrafo-telefone"></p>
+				</section>
+			</li>
+		</ul>
+		<button type="button" onclick="verificador()">
+			Testar
+		</button>
+	</form>
+	<script src="script.js"></script>
+	<!--<script>
+		function verificaCpf(cpf) {
+	let soma = 0;
+	if(cpf.length!=11||cpf=="00000000000"||cpf=="11111111111"||cpf=="22222222222"||cpf=="33333333333"||cpf=="44444444444"||cpf== "55555555555"||cpf=="66666666666"||cpf="77777777777"||cpf=="88888888888"||cpf=="99999999999"){
+		return false;
+	}
+	for (let i = 0; i < 9; i++) {
+		if (parseInt(cpf.charAt(i)) == null) {
+			i = 0;
+		}
+		soma += parseInt(cpf.charAt(i)) * (10 - i);
+		console.log(soma);
+	}
+	let resto = (soma * 10) % 11;
+	if (resto == cpf.charAt(9)) {
+		if (resto == 0 || resto == 1) {
+			resto = 0;
+		}
+		return true;
+	} else {
+		return false;
+	}
+	soma = 0;
+	resto = 0;
+	for (let j = 0; j < 10; j++) {
+		if (parseInt(cpf.charAt(j)) == null) {
+			j = 0;
+		}
+		soma += parseInt(cpf.charAt(j)) * (11 - j);
+		console.log(soma);
+	}
+	resto = (soma * 10) % 11;
+	if (resto == cpf.charAt(10)) {
+		if (resto == 0 || resto == 1) {
+			resto = 0;
+		}
+		return true;
+	} else {
+		return false;
+	}
+	return true;
+}
+let paragrafoCpf = document.getElementById("paragrafo-cpf");
+	paragrafoCpf.textContent="Olá!";
+function verificador() {
+	const nome = document.querySelector("#nome-usuario").value;
+	const cartaoCpf = verificaCpf(document.querySelector("#cartao-CPF").value);
+	
+	if (nome.length < 3) {
+		var paragrafo = document.getElementById("paragrafo-nome");
+		alert("Opa! Seu nome deve ter pelo menos três letras.");
+	}
+	if (cartaoCpf === true) {
+		paragrafoCpf.textContent = cartaoCpf;
+	}
+	else if (cartaoCpf == false || cartaoCpf.length == 0) {
+		alert("Opa! Verifique o campo CPF, você pode ter inserido um número de CPF inválido ou ter se esquecido de inserir o número de seu CPF.");
+	}
+}
+
+	</script>-->
+</body>
+
+</html>
