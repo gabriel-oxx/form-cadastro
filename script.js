@@ -152,9 +152,11 @@ function verificador() {
   if (nome.length < 3) {
     alert("Opa! Seu nome deve ter pelo menos três letras.");
   }
+  else{
+    alert(`Obrigado! ${nome}`);
+  }
   if (cartaoCpf == false || cartaoCpf.length == 0) {
     alert("Opa! Verifique o campo CPF, você pode ter inserido um número de CPF inválido ou ter se esquecido de inserir o número de seu CPF.");
   }
-  window.location.href="https://www.devmedia.com.br/javascript-redirect-redirecionando-o-usuario-com-window-location/39809";
-}
+  }
 

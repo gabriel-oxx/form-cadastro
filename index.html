@@ -11,17 +11,16 @@
 </head>
 
 <body>
-	<img src="https://www.itau.com.br/">
 	<h1>
 		Insira seus dados abaixo
 	</h1>
 	<br />
-	<form action="" id="formulario" name="formulario" method="POST">
+	<form id="formulario" name="formulario" action="" method="post">
 		<ul>
 			<li>
-				<section class="identificacao">
+				<section class="identificacao" class="dados">
 					<label for="nome-usuario">
-						*Nome:
+						Nome*
 					</label>
 					<input type="text" required  id="nome-usuario" class="identificacao" name="nome" placeholder="Insira aqui seu nome">
 					<br>
@@ -78,22 +77,22 @@
 						placeholder="Insira aqui o número do seu RG">
 					<br />
 					<label for="cartao-CPF">
-						*CPF:
+						CPF*
 					</label>
 					<input type="text" required="required" id="cartao-CPF" class="identificacao" onfocus="verificador(this);" minlength="11" maxlength="11"
 						placeholder="Insira aqui o número do seu CPF">
 				</section>
 			</li>
 			<li>
-				<section id="local">
+				<section id="local" class="dados">
 					<label for="CEP">
-						*CEP:
+						CEP
 					</label>
 					<input type="text" required id="cep" name="cep" onblur="pesquisacep(this.value);" onfocus="mascaraCep(this);" placeholder="Insira aqui o número do seu CEP ">
 					<br />
 					<br />
 					<label for="rua">
-						*Rua:
+						Rua*
 					</label>
 					<input type="text" required="required" id="rua" name="rua"
 						placeholder="Nome e ou número de sua rua...">
@@ -104,7 +103,7 @@
 					<input type="text"  id="bairro" placeholder="Nome do seu bairro aqui">
 					<br>
 					<label for="numero">
-						*Número:
+						Número*
 					</label>
 					<input type="text" required="required" id="numero" name="numero"
 						placeholder="Insira o número aqui">
@@ -120,32 +119,39 @@
 					</label>
 					<input type="text" id="uf" name="uf" placeholder="Insira o nome de seu estado aqui">
 					<label for="ibge">
-						ibge:
+						iIBGE:
 					</label>
 					<input type="text" id="ibge" name="ibge">
 				</section>
 			</li>
 						<li>
-				<section class="contatos">
-					<label for="celular">
-						*celular:
+				<section id="contatos" class="dados">
+					<label for="email">
+						E-mail*
 					</label>
-					<input type="tel" type="number" required="required" id="celular" name="numero-celular" minlength="11" maxlength="11"  onfocus="mascaraTelefone(this);"
+						<input type="email" id="email" name="email" required minlength="10" maxlength="40" placeholder="Insira aqui seu email">
+					</label>
+					<label for="celular">
+						Celular*
+					</label>
+					<input type="tel"  required="required" id="celular" name="numero-celular" minlength="11" maxlength="11"  onfocus="mascaraTelefone(this);"
 						placeholder="Insira aqui seu número de celular">
 					<br />
 					<br />
 					<label for="fixo">
 						Telefone fixo:
 					</label>
-					<input type="text" id="fixo" name="numero-telefone-fixo"  onfocus="mascaraTelefone(this);"
+					<input type="tel" id="fixo" minlength="10" maxlength="10" name="numero-telefone-fixo"  onfocus="mascaraTelefone(this);"
 						placeholder="Insira aqui seu número de telefone fixo">
 					<p id="paragrafo-telefone"></p>
 				</section>
 			</li>
 		</ul>
-		<button type="submit" type="button" onsubmit="verificador()" <a href="https://www.devmedia.com.br/javascript-redirect-redirecionando-o-usuario-com-window-location/39809">
-			Enviar
+		<a href="pagina.html">
+				<button type="submit" type="button" onsubmit="verificador()">
+					Enviar
 		</button>
+		</a>
 	</form>
 	<script src="script.js"></script>
 	</body>
