@@ -1,6 +1,6 @@
 function verificaCpf(cpf) {
   let soma = 0;
-  if(cpf.length!=11||cpf=="00000000000"||cpf=="11111111111"||cpf=="22222222222"||cpf=="33333333333"||cpf=="44444444444"||cpf=="55555555555"||cpf=="66666666666"||cpf=="77777777777"||cpf=="88888888888"||cpf=="99999999999"){
+  if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999") {
     return false;
   }
   for (let i = 0; i < 9; i++) {
@@ -40,51 +40,51 @@ function verificaCpf(cpf) {
   return true;
 }
 
-function mascaraCPF(CPF){
-  const elementoAlvo=CPF;
-  const cpfAtual=CPF.value;
+function mascaraCPF(CPF) {
+  const elementoAlvo = CPF;
+  const cpfAtual = CPF.value;
   let cpfAtualizado;
-  cpfAtualizado=cpfAtual.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
-  elementoAlvo.value=cpfAtualizado;
+  cpfAtualizado = cpfAtual.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+  elementoAlvo.value = cpfAtualizado;
 }
 
-function mascaraTelefone(telefone){
-    const textoAtual=telefone.value;
-  const eCelular=textoAtual.length===11;
-  const eTelefone=textoAtual.length===10;
- let textoAjustado;
- if(eCelular){
-  textoAjustado=textoAtual.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
-  telefone.value=textoAjustado;
+function mascaraTelefone(telefone) {
+  const textoAtual = telefone.value;
+  const eCelular = textoAtual.length === 11;
+  const eTelefone = textoAtual.length === 10;
+  let textoAjustado;
+  if (eCelular) {
+    textoAjustado = textoAtual.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+    telefone.value = textoAjustado;
   }
- if(eTelefone){
-  textoAjustado=textoAtual.replace(/(\d{2})(\d{4})(\d{4})/, "($1) $2-$3");
- telefone.value=textoAjustado;
- }
- }
+  if (eTelefone) {
+    textoAjustado = textoAtual.replace(/(\d{2})(\d{4})(\d{4})/, "($1) $2-$3");
+    telefone.value = textoAjustado;
+  }
+}
 
- function limpa_formulário_cep() {
+function limpa_formulário_cep() {
   //Limpa valores do formulário de cep.
-  document.getElementById('rua').value=("");
-  document.getElementById('bairro').value=("");
-  document.getElementById('cidade').value=("");
-  document.getElementById('uf').value=("");
-  document.getElementById('ibge').value=("");
+  document.getElementById('rua').value = ("");
+  document.getElementById('bairro').value = ("");
+  document.getElementById('cidade').value = ("");
+  document.getElementById('uf').value = ("");
+  document.getElementById('ibge').value = ("");
 }
 
 function meu_callback(conteudo) {
   if (!("erro" in conteudo)) {
-      //Atualiza os campos com os valores.
-      document.getElementById('rua').value=(conteudo.logradouro);
-      document.getElementById('bairro').value=(conteudo.bairro);
-      document.getElementById('cidade').value=(conteudo.localidade);
-      document.getElementById('uf').value=(conteudo.uf);
-      document.getElementById('ibge').value=(conteudo.ibge);
+    //Atualiza os campos com os valores.
+    document.getElementById('rua').value = (conteudo.logradouro);
+    document.getElementById('bairro').value = (conteudo.bairro);
+    document.getElementById('cidade').value = (conteudo.localidade);
+    document.getElementById('uf').value = (conteudo.uf);
+    document.getElementById('ibge').value = (conteudo.ibge);
   } //end if.
   else {
-      //CEP não Encontrado.
-      limpa_formulário_cep();
-      alert("CEP não encontrado.");
+    //CEP não Encontrado.
+    limpa_formulário_cep();
+    alert("CEP não encontrado.");
   }
 }
 
@@ -96,46 +96,46 @@ function pesquisacep(valor) {
   //Verifica se campo cep possui valor informado.
   if (cep != "") {
 
-      //Expressão regular para validar o CEP.
-      var validacep = /^[0-9]{8}$/;
+    //Expressão regular para validar o CEP.
+    var validacep = /^[0-9]{8}$/;
 
-      //Valida o formato do CEP.
-      if(validacep.test(cep)) {
+    //Valida o formato do CEP.
+    if (validacep.test(cep)) {
 
-          //Preenche os campos com "..." enquanto consulta webservice.
-          document.getElementById('rua').value="...";
-          document.getElementById('bairro').value="...";
-          document.getElementById('cidade').value="...";
-          document.getElementById('uf').value="...";
-          document.getElementById('ibge').value="...";
+      //Preenche os campos com "..." enquanto consulta webservice.
+      document.getElementById('rua').value = "...";
+      document.getElementById('bairro').value = "...";
+      document.getElementById('cidade').value = "...";
+      document.getElementById('uf').value = "...";
+      document.getElementById('ibge').value = "...";
 
-          //Cria um elemento javascript.
-          var script = document.createElement('script');
+      //Cria um elemento javascript.
+      var script = document.createElement('script');
 
-          //Sincroniza com o callback.
-          script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+      //Sincroniza com o callback.
+      script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
 
-          //Insere script no documento e carrega o conteúdo.
-          document.body.appendChild(script);
+      //Insere script no documento e carrega o conteúdo.
+      document.body.appendChild(script);
 
-      } //end if.
-      else {
-          //cep é inválido.
-          limpa_formulário_cep();
-          alert("Formato de CEP inválido.");
-      }
+    } //end if.
+    else {
+      //cep é inválido.
+      limpa_formulário_cep();
+      alert("Formato de CEP inválido.");
+    }
   }
 
   else {
     //cep sem valor, limpa formulário.
     limpa_formulário_cep();
-}
+  }
 };
 
 //Função para o cep seria colocada aqui
-function mascaraCep(cep){
-  let cepAtual= document.getElementById(cep.id);
-  cepAtual= cepAtual.value.split('-').join('');
+function mascaraCep(cep) {
+  let cepAtual = document.getElementById(cep.id);
+  cepAtual = cepAtual.value.split('-').join('');
 
   let cepAtualizado = cepAtual.match(/\d{5}(?=\d{3})|\d+/g).join('-');
   document.getElementById(cep.id).value = cepAtualizado;
@@ -144,25 +144,17 @@ function mascaraCep(cep){
 function verificador() {
   const nome = document.querySelector("#nome-usuario").value;
   const cartaoCpf = verificaCpf(document.querySelector("#cartao-CPF").value);
-  const cpf=mascaraCPF(document.querySelector("#cartao-CPF"));
-  let paragrafoCpf = document.getElementById("paragrafo-cpf");
-  const celular=mascaraTelefone(document.getElementById("celular"));
-   const numeroTelefone=mascaraTelefone(document.getElementById("fixo"));
-   
-  let paragrafoTelefone=document.getElementById("paragrafo-telefone");
-  /*
+  const cpf = mascaraCPF(document.querySelector("#cartao-CPF"));
+  let recebeMascara = mascaraCep();
+  const celular = mascaraTelefone(document.getElementById("celular"));
+  const numeroTelefone = mascaraTelefone(document.getElementById("fixo"));
+
   if (nome.length < 3) {
-    var paragrafo = document.getElementById("paragrafo-nome");
     alert("Opa! Seu nome deve ter pelo menos três letras.");
   }
-  if (cartaoCpf === true) {
-    paragrafoCpf.textContent = cartaoCpf;
-  }
-  else if (cartaoCpf == false || cartaoCpf.length == 0) {
+  if (cartaoCpf == false || cartaoCpf.length == 0) {
     alert("Opa! Verifique o campo CPF, você pode ter inserido um número de CPF inválido ou ter se esquecido de inserir o número de seu CPF.");
-  }*/
-  paragrafoTelefone.textContent =numeroTelefone;
+  }
+  window.location.href="https://www.devmedia.com.br/javascript-redirect-redirecionando-o-usuario-com-window-location/39809";
 }
 
-//let pegaCpf="00000000000";
-//console.log(verificaCpf(pegaCpf));

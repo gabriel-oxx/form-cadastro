@@ -6,11 +6,12 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css">
 	<title>
-		Cadastre-se
+		Cadastro Itaú
 	</title>
 </head>
 
 <body>
+	<img src="https://www.itau.com.br/">
 	<h1>
 		Insira seus dados abaixo
 	</h1>
@@ -22,7 +23,7 @@
 					<label for="nome-usuario">
 						*Nome:
 					</label>
-					<input type="text" id="nome-usuario" name="nome" placeholder="Insira aqui seu nome">
+					<input type="text" required  id="nome-usuario" class="identificacao" name="nome" placeholder="Insira aqui seu nome">
 					<br>
 					<p id="paragrafo-nome"></p>
 					<br />
@@ -71,27 +72,24 @@
 					</fieldset>
 					<br />
 					<label for="cartao-identidade">
+						RG:
 					</label>
-					<input type="text" id="cartao-identidade" maxlength="8"
+					<input type="text" id="cartao-identidade"class="identificacao" minlength="7" maxlength="8"
 						placeholder="Insira aqui o número do seu RG">
-					RG:
-					<br />
-					<p id="paragrafo-rg"></p>
 					<br />
 					<label for="cartao-CPF">
 						*CPF:
 					</label>
-					<input type="text" required="required" id="cartao-CPF" onfocus="verificador(this);" maxlength="11"
+					<input type="text" required="required" id="cartao-CPF" class="identificacao" onfocus="verificador(this);" minlength="11" maxlength="11"
 						placeholder="Insira aqui o número do seu CPF">
-					<p id="paragrafo-cpf"></p>
 				</section>
 			</li>
 			<li>
 				<section id="local">
 					<label for="CEP">
-						CEP:
+						*CEP:
 					</label>
-					<input type="text" id="cep" name="cep" onfocus="pesquisacep(this.value);" onfocus="mascaraCep(this);" placeholder="Insira aqui o número do seu CEP ">
+					<input type="text" required id="cep" name="cep" onblur="pesquisacep(this.value);" onfocus="mascaraCep(this);" placeholder="Insira aqui o número do seu CEP ">
 					<br />
 					<br />
 					<label for="rua">
@@ -132,85 +130,24 @@
 					<label for="celular">
 						*celular:
 					</label>
-					<input type="tel" type="number" required="required" id="celular" name="numero-celular" minlength="11" maxlength="11"  onblur="verificador(this);"
+					<input type="tel" type="number" required="required" id="celular" name="numero-celular" minlength="11" maxlength="11"  onfocus="mascaraTelefone(this);"
 						placeholder="Insira aqui seu número de celular">
 					<br />
 					<br />
 					<label for="fixo">
 						Telefone fixo:
 					</label>
-					<input type="text" id="fixo" name="numero-telefone-fixo"  onblur="verificador(this);"
+					<input type="text" id="fixo" name="numero-telefone-fixo"  onfocus="mascaraTelefone(this);"
 						placeholder="Insira aqui seu número de telefone fixo">
 					<p id="paragrafo-telefone"></p>
 				</section>
 			</li>
 		</ul>
-		<button type="button" onclick="verificador()">
-			Testar
+		<button type="submit" type="button" onsubmit="verificador()" <a href="https://www.devmedia.com.br/javascript-redirect-redirecionando-o-usuario-com-window-location/39809">
+			Enviar
 		</button>
 	</form>
 	<script src="script.js"></script>
-	<!--<script>
-		function verificaCpf(cpf) {
-	let soma = 0;
-	if(cpf.length!=11||cpf=="00000000000"||cpf=="11111111111"||cpf=="22222222222"||cpf=="33333333333"||cpf=="44444444444"||cpf== "55555555555"||cpf=="66666666666"||cpf="77777777777"||cpf=="88888888888"||cpf=="99999999999"){
-		return false;
-	}
-	for (let i = 0; i < 9; i++) {
-		if (parseInt(cpf.charAt(i)) == null) {
-			i = 0;
-		}
-		soma += parseInt(cpf.charAt(i)) * (10 - i);
-		console.log(soma);
-	}
-	let resto = (soma * 10) % 11;
-	if (resto == cpf.charAt(9)) {
-		if (resto == 0 || resto == 1) {
-			resto = 0;
-		}
-		return true;
-	} else {
-		return false;
-	}
-	soma = 0;
-	resto = 0;
-	for (let j = 0; j < 10; j++) {
-		if (parseInt(cpf.charAt(j)) == null) {
-			j = 0;
-		}
-		soma += parseInt(cpf.charAt(j)) * (11 - j);
-		console.log(soma);
-	}
-	resto = (soma * 10) % 11;
-	if (resto == cpf.charAt(10)) {
-		if (resto == 0 || resto == 1) {
-			resto = 0;
-		}
-		return true;
-	} else {
-		return false;
-	}
-	return true;
-}
-let paragrafoCpf = document.getElementById("paragrafo-cpf");
-	paragrafoCpf.textContent="Olá!";
-function verificador() {
-	const nome = document.querySelector("#nome-usuario").value;
-	const cartaoCpf = verificaCpf(document.querySelector("#cartao-CPF").value);
-	
-	if (nome.length < 3) {
-		var paragrafo = document.getElementById("paragrafo-nome");
-		alert("Opa! Seu nome deve ter pelo menos três letras.");
-	}
-	if (cartaoCpf === true) {
-		paragrafoCpf.textContent = cartaoCpf;
-	}
-	else if (cartaoCpf == false || cartaoCpf.length == 0) {
-		alert("Opa! Verifique o campo CPF, você pode ter inserido um número de CPF inválido ou ter se esquecido de inserir o número de seu CPF.");
-	}
-}
-
-	</script>-->
-</body>
+	</body>
 
 </html>
