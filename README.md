@@ -14,4 +14,7 @@ Projeto criado para processo celetivo da Gama Academy  junto ao Itaú.
  [Tipo de entrada HTML = "rádio" - W3C](https://www.w3schools.com/tags/att_input_type_radio.asp)
  Os demais inputs são caixas de edissão que pedem dados digitados.
  Ainda na primeira sessão são utilizados labels, recurso que é importante para usuários de leitores de telas, pois os labels servem para etiquetar os inputs.
- [HTML label tag - W3C](https://www.w3schools.com/tags/tag_label.asp)
+ [HTML label tag - W3C](https://www.w3schools.com/tags/tag_label.asp)  
+ Em quase todos os inputs de caixa de edição  foram inseridos atributos placeholders, para auxiliar o usuário em como ele deve inserir as informações solicitadas.
+ [HTML <input> placeholder Attribute - w3schools](https://www.w3schools.com/tags/att_input_placeholder.asp)  
+ Foram utilizados também neste formulário os atributos [minlength](https://www.w3schools.com/tags/att_input_minlength.asp)e [maxlength](https://www.w3schools.com/tags/att_input_maxlength.asp) para limitar respectivamente as quantidades mínimas e máximas aceitaveis de caracteres.
