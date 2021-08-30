@@ -11,4 +11,4 @@ Projeto criado para processo celetivo da Gama Academy  junto ao Itaú.
 
  Ao longo do formulário, o usuário pode se deparar com vários inputs, no entanto só na primeira sessão há uma diferença, os inputs para identificação de sexo estão em forma de radio buttons.
  Mais informações em 
- [https://www.w3schools.com/tags/att_input_type_radio.asp](Tipo de entrada HTML = "rádio" - W3C)
+ [Tipo de entrada HTML = "rádio" - W3C](https://www.w3schools.com/tags/att_input_type_radio.asp)
