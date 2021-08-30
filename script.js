@@ -1,45 +1,3 @@
-function verificaCpf(cpf) {
-  let soma = 0;
-  if (cpf.length != 11 || cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999") {
-    return false;
-  }
-  for (let i = 0; i < 9; i++) {
-    if (parseInt(cpf.charAt(i)) == null) {
-      i = 0;
-    }
-    soma += parseInt(cpf.charAt(i)) * (10 - i);
-    console.log(soma);
-  }
-  let resto = (soma * 10) % 11;
-  if (resto == cpf.charAt(9)) {
-    if (resto == 0 || resto == 1) {
-      resto = 0;
-    }
-    return true;
-  } else {
-    return false;
-  }
-  soma = 0;
-  resto = 0;
-  for (let j = 0; j < 10; j++) {
-    if (parseInt(cpf.charAt(j)) == null) {
-      j = 0;
-    }
-    soma += parseInt(cpf.charAt(j)) * (11 - j);
-    console.log(soma);
-  }
-  resto = (soma * 10) % 11;
-  if (resto == cpf.charAt(10)) {
-    if (resto == 0 || resto == 1) {
-      resto = 0;
-    }
-    return true;
-  } else {
-    return false;
-  }
-  return true;
-}
-
 function mascaraCPF(CPF) {
   const elementoAlvo = CPF;
   const cpfAtual = CPF.value;
@@ -140,23 +98,10 @@ function mascaraCep(cep) {
   let cepAtualizado = cepAtual.match(/\d{5}(?=\d{3})|\d+/g).join('-');
   document.getElementById(cep.id).value = cepAtualizado;
 }
-
-function verificador() {
-  const nome = document.querySelector("#nome-usuario").value;
-  const cartaoCpf = verificaCpf(document.querySelector("#cartao-CPF").value);
-  const cpf = mascaraCPF(document.querySelector("#cartao-CPF"));
-  let recebeMascara = mascaraCep();
+let recebeMascara = mascaraCep();
   const celular = mascaraTelefone(document.getElementById("celular"));
   const numeroTelefone = mascaraTelefone(document.getElementById("fixo"));
-
-  if (nome.length < 3) {
-    alert("Opa! Seu nome deve ter pelo menos três letras.");
+  function verificador() {
+  const cpf = mascaraCPF(document.querySelector("#cartao-CPF"));
+  let cartaoCpf = document.querySelector("#cartao-CPF").value;  
   }
-  else{
-    alert(`Obrigado! ${nome}`);
-  }
-  if (cartaoCpf == false || cartaoCpf.length == 0) {
-    alert("Opa! Verifique o campo CPF, você pode ter inserido um número de CPF inválido ou ter se esquecido de inserir o número de seu CPF.");
-  }
-  }
-

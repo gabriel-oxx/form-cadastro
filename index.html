@@ -12,19 +12,20 @@
 
 <body>
 	<h1>
-		Insira seus dados abaixo
+		Insira seus dados abaixo para que possamos iniciar seu cadastro.
 	</h1>
 	<br />
-	<form id="formulario" name="formulario" action="" method="post">
+	<p>Abra sua conta no maior banco da América Latina!</p>
+	<form id="formulario" name="formulario" action="" method="">
 		<ul>
 			<li>
 				<section class="identificacao" class="dados">
 					<label for="nome-usuario">
 						Nome*
 					</label>
-					<input type="text" required  id="nome-usuario" class="identificacao" name="nome" placeholder="Insira aqui seu nome">
+					<input type="text" required id="nome-usuario" class="identificacao" name="nome"
+						placeholder="Insira aqui seu nome">
 					<br>
-					<p id="paragrafo-nome"></p>
 					<br />
 					<fieldset <legend>Como você se identifica?</legend>
 						<ul>
@@ -73,22 +74,24 @@
 					<label for="cartao-identidade">
 						RG:
 					</label>
-					<input type="text" id="cartao-identidade"class="identificacao" minlength="7" maxlength="8"
+					<input type="text" id="cartao-identidade" class="identificacao" minlength="7" maxlength="8"
 						placeholder="Insira aqui o número do seu RG">
 					<br />
 					<label for="cartao-CPF">
 						CPF*
 					</label>
-					<input type="text" required="required" id="cartao-CPF" class="identificacao" onfocus="verificador(this);" minlength="11" maxlength="11"
-						placeholder="Insira aqui o número do seu CPF">
+					<input type="text" required="required" id="cartao-CPF" name="cartao-cpf" class="identificacao" onfocus="mascaraCpf(this.value);"
+						onblur="verificador(this)" minlength="11" maxlength="11"
+						placeholder="Insira aqui o número do seu CPF (máximo de 11 dígitos)">
 				</section>
 			</li>
 			<li>
-				<section id="local" class="dados">
+				<section id="localidade" class="dados">
 					<label for="CEP">
 						CEP*
 					</label>
-					<input type="text" required id="cep" name="cep" onblur="pesquisacep(this.value);" onfocus="mascaraCep(this);" placeholder="Insira aqui o número do seu CEP ">
+					<input type="text" required id="cep" name="cep" onblur="pesquisacep(this.value);"
+						onfocus="mascaraCep(this);" placeholder="Insira aqui o número do seu CEP ">
 					<br />
 					<br />
 					<label for="rua">
@@ -100,13 +103,12 @@
 					<label for="bairro">
 						Bairro:
 					</label>
-					<input type="text"  id="bairro" placeholder="Nome do seu bairro aqui">
+					<input type="text" id="bairro" placeholder="Nome do seu bairro aqui">
 					<br>
 					<label for="numero">
 						Número*
 					</label>
-					<input type="text" required="required" id="numero" name="numero"
-						placeholder="Insira o número aqui">
+					<input type="text" required="required" id="numero" name="numero" placeholder="Insira o número aqui">
 					<br />
 					<br />
 					<label for="cidade">
@@ -124,36 +126,34 @@
 					<input type="text" id="ibge" name="ibge">
 				</section>
 			</li>
-						<li>
+			<li>
 				<section id="contatos" class="dados">
 					<label for="email">
 						E-mail*
 					</label>
-						<input type="email" id="email" name="email" required minlength="10" maxlength="40" placeholder="Insira aqui seu email">
+					<input type="email" required id="email" name="email"  minlength="10" maxlength="40"
+						placeholder="Insira aqui seu email">
 					</label>
 					<label for="celular">
 						Celular*
 					</label>
-					<input type="tel"  required="required" id="celular" name="numero-celular" minlength="11" maxlength="11"  onfocus="mascaraTelefone(this);"
-						placeholder="Insira aqui seu número de celular">
+					<input type="tel" required="required" id="celular" name="numero-celular" minlength="11"
+						maxlength="11" onfocus="mascaraTelefone(this);" placeholder="Insira aqui seu número de celular">
 					<br />
 					<br />
 					<label for="fixo">
 						Telefone fixo:
 					</label>
-					<input type="tel" id="fixo" minlength="10" maxlength="10" name="numero-telefone-fixo"  onfocus="mascaraTelefone(this);"
-						placeholder="Insira aqui seu número de telefone fixo">
-					<p id="paragrafo-telefone"></p>
+					<input type="tel" id="fixo" minlength="10" maxlength="10" name="numero-telefone-fixo"
+						onfocus="mascaraTelefone(this);" placeholder="Insira aqui seu número de telefone fixo">
 				</section>
 			</li>
 		</ul>
-		<a href="pagina.html">
-				<button type="submit" type="button" onsubmit="verificador()">
-					Enviar
+		<button onclick="verificador(this)">
+			Enviar
 		</button>
-		</a>
 	</form>
 	<script src="script.js"></script>
-	</body>
+</body>
 
 </html>
