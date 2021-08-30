@@ -3,7 +3,7 @@
 
 Projeto criado para processo celetivo da Gama Academy  junto ao Itaú.
   
-  ##Funcionalidades do projeto  
+  ## Funcionalidades do projeto  
   Este formulário está dividido em três sessões, sendo estas:
 1. Identificação: nessa sessão estão sendo solicitados dados que possam ser úteis para identificar o usuário, tais como nome e RG.
 2. Localidade: Nesta sessão são solicitados dados que possam ser úteis para identificar o local onde reside o usuário.
